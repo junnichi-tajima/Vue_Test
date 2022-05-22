@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link rel="stylesheet" href="./style1.css">
+</head>
+
+<body>
+  <h1>切り替えタブ</h1>
+  <div class="container" id="app">
+    <div class="tab" :class="tab_class1" @click="clicked(1);">tab1</div>
+    <div class="tab" :class="tab_class2" @click="clicked(2);">tab2</div>
+    <div class="tab" :class="tab_class3" @click="clicked(3);">tab3</div>
+    <div class="tab_body1" v-if="selected_no==1">コンテンツ１</div>
+    <div class="tab_body2" v-if="selected_no==2">コンテンツ２</div>
+    <div class="tab_body3" v-if="selected_no==3">コンテンツ３</div>
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        selected_no: 1,
+        tab_class1: 'tab',
+      },
+      methods: {
+        clicked: function (no) {
+          this.selected_no = no;
+          // alert(no);
+          this.tab_class1 = 'tab'
+          this.tab_class2 = 'tab'
+          this.tab_class3 = 'tab'
+          switch (no) {
+            case 1: this.tab_class1 = 'tab__selected'; break;
+            case 2: this.tab_class2 = 'tab__selected'; break;
+
+            case 3: this.tab_class3 = 'tab__selected'; break;
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>

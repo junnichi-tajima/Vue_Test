@@ -1,0 +1,22 @@
+body {
+  width: 100%;
+  height:100%;
+  background-color: aqua;
+  /* margin-top: 10%; */
+
+  /* font-size: 48px; */
+}
+
+input {
+  font-size: 48px;
+  border: 5px solid lime;
+}
+
+.sujest {
+  font-size: 48px;
+  border: 1px solid black;
+}
+
+.null__class {
+  display: none;
+}

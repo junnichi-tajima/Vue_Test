@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link rel="stylesheet" href="./style2.css">
+</head>
+
+<body>
+  <div class="" id="app">
+    <button @click="open_event">開く</button>
+    <div class="container" @click="close_event">
+      <h1>モーダルウィンドウ</h1>
+    </div>
+    <div class="modal" v-show="is__modal" @click="null__event">
+      モーダルウィンドウ
+      <br>
+      <button class="hide__button" @click="close_event">閉じる</button>
+    </div>
+  </div>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+
+      data: {
+        is__modal: true,
+      },
+      methods: {
+        open_event: function () {
+          this.is__modal = true;
+          // alert('open');
+        },
+        close_event: function () {
+          this.is__modal = false;
+          // alert('close');
+        },
+
+        null__event: function () {
+          // 何もしないイベント
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
