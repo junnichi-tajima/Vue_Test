@@ -16,22 +16,22 @@
     <!-- <div class="tab" :class="tab_class1" @click="clicked(1);">tab1</div>
     <div class="tab" :class="tab_class2" @click="clicked(2);">tab2</div>
     <div class="tab" :class="tab_class3" @click="clicked(3);">tab3</div> -->
-    <tab-conpornent :tab-name='tab1'></tab-conpornent>
-    <tab-conpornent :tab-name='tab2'></tab-conpornent>
-    <tab-conpornent :tab-name='tab3'></tab-conpornent>
+    <tab-conpornent>AA</tab-conpornent>
+    <tab-conpornent>BB</tab-conpornent>
+    <tab-conpornent></tab-conpornent>
     <div class="tab_body1" v-if="selected_no==1">コンテンツ１</div>
     <div class="tab_body2" v-if="selected_no==2">コンテンツ２</div>
     <div class="tab_body3" v-if="selected_no==3">コンテンツ３</div>
   </div>
 
   <script>
-    Vue.component('tab-conpornent', {
+    Vue.component('tab-component', {
       props: {
         tabName: {
           type: String
         }
       },
-      template: '<div class="tab">AA{{tabName}}</div>'
+      template: '<div class="tab">tab2</div>'
     })
     const vm = new Vue({
       el: '#app',
