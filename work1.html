@@ -13,31 +13,40 @@
 <body>
   <h1>切り替えタブ</h1>
   <div class="container" id="app">
-    <!-- <div class="tab" :class="tab_class1" @click="clicked(1);">tab1</div>
-    <div class="tab" :class="tab_class2" @click="clicked(2);">tab2</div>
-    <div class="tab" :class="tab_class3" @click="clicked(3);">tab3</div> -->
-    <tab-conpornent class="tab" :tabName="tab1"></tab-conpornent>
-    <tab-conpornent class="tab" :tabName="tab2"></tab-conpornent>
-    <tab-conpornent class="tab" :tabName="tab3"></tab-conpornent>
+    <tab-conpornent class="tab" :class="tab_class1" :tab-name="tab1" v-on:clicked="clicked(1)">
+    </tab-conpornent>
+    <tab-conpornent class="tab" :class="tab_class2" :tab-name="tab2" v-on:clicked="clicked(2)"></tab-conpornent>
+    <tab-conpornent class="tab" :class="tab_class3" :tab-name="tab3" v-on:clicked="clicked(3)"></tab-conpornent>
     <div class="tab_body1" v-if="selected_no==1">コンテンツ１</div>
     <div class="tab_body2" v-if="selected_no==2">コンテンツ２</div>
     <div class="tab_body3" v-if="selected_no==3">コンテンツ３</div>
   </div>
 
   <script>
-    Vue.component('tab-component', {
+    Vue.component('tab-conpornent', {
       props: {
         tabName: {
           type: String
         }
       },
-      template: '<div class="tab">A{{tabName}}B</div>'
+      template: '<div class="tab" v-on:click="tagClicked()">{{tabName}}</div>',
+      methods: {
+        tagClicked: function () {
+          // alert('func');
+          this.$emit('clicked');
+        }
+      }
     })
     const vm = new Vue({
       el: '#app',
       data: {
         selected_no: 1,
         tab_class1: 'tab',
+        tab_class2: 'tab',
+        tab_class3: 'tab',
+        tab1: 'タブ１',
+        tab2: 'タブ２',
+        tab3: 'タブ３',
       },
       methods: {
         clicked: function (no) {
